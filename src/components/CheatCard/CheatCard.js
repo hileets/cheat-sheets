@@ -8,15 +8,12 @@ const CheatCardWrapper = styled.div`
 max-width: 500px;
 padding-top: 25px;
 `
-
 const HeadingWrapper = styled.div`
 
 `
-
 const Title = styled.h3`
 font-family: Operator Mono, arial, sans-serif;
 `
-
 const HeadingLineWrapper = styled.div`
 margin: 15px;
 width: 100%; 
@@ -63,7 +60,7 @@ const Highlighter = styled.div`
 width: 0px;
 `
 
-const CheatCard = ({ cardTitle, cardText }) => {
+const CheatCard = ({ cardTitle, cardText, tagTitle }) => {
   return (
     <>
       <CheatCardWrapper>
@@ -88,7 +85,6 @@ const CheatCard = ({ cardTitle, cardText }) => {
             </Highlighter>
           </TextWrapper>
         </CodeWrapper>
-
       </CheatCardWrapper>
     </>
   )

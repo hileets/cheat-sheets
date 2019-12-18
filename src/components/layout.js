@@ -1,16 +1,14 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
 import React from "react"
 import PropTypes from "prop-types"
 import "./layout.css"
+import styled from "styled-components"
 import CheatCard from "./CheatCard/CheatCard"
+import Tag from "./Tag/Tag"
 
 const data = [{
-  title: "Components", text: `
+  heading: `Defaults`,
+  cheats: [{
+    title: "Components", text: `
 import React from 'react'
 import ReactDOM from 'react-dom'
 
@@ -25,31 +23,36 @@ class Hello extends React.Component {
 const el = document.body
 ReactDOM.render(<Hello name='John' />, el)
 
-` },
+`,
+  }]
+},
 {
-  title: "Import multiple exports", text: `import React, {Component} from 'react'
-import ReactDOM from 'react-dom'
-class Hello extends Component {
-  ...
-}` },
-{
-  title: "Children", text: `<AlertBox>
-  <h1>You have pending notifications</h1>
-</AlertBox>
- 
-class AlertBox extends Component {
-  render () {
-    return <div className='alert-box'>
-      {this.props.children}
-    </div>
-  }
-}`
+  heading: 'Other Components', cheats: [{
+    title: "Import multiple exports", text: `import React, {Component} from 'react'
+  import ReactDOM from 'react-dom'
+  class Hello extends Component {
+    ...
+  }`
+  },
+  {
+    title: "Children", text: `<AlertBox>
+    <h1>You have pending notifications</h1>
+  </AlertBox>
+   
+  class AlertBox extends Component {
+    render () {
+      return <div className='alert-box'>
+        {this.props.children}
+      </div>
+    }
+  }`
+  }],
 }]
+
 
 const Layout = ({ children }) => {
   return (
     <>
-      {/* <Header siteTitle={data.site.siteMetadata.title} /> */}
       <div
         style={{
           margin: `0 auto`,
@@ -58,14 +61,15 @@ const Layout = ({ children }) => {
           paddingTop: 0,
         }}
       >
-        {/* <main>{children}</main> */}
-        {data.map(cardData => <CheatCard cardTitle={cardData.title} cardText={cardData.text} />)}
-
-        {/* <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer> */}
+        {
+          data.map(head =>
+            (<div>
+              <Tag tagTitle={head.heading} />
+              {head.cheats.map(cheat =>
+                <CheatCard cardTitle={cheat.title} cardText={cheat.text} />
+              )}
+            </div>))
+        }
       </div>
     </>
   )
