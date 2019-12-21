@@ -7,24 +7,56 @@ import Tag from "./Tag/Tag"
 
 const data = [{
   heading: `Defaults`,
-  cheats: [{
-    title: "Components", text: `
-import React from 'react'
-import ReactDOM from 'react-dom'
-
-class Hello extends React.Component {
-  render () {
-    return <div className='message-box'>
-      Hello {this.props.name}
-    </div>
+  cheats: [
+    {
+      title: "Setting default props", text: `Hello.defaultProps = {
+    color: 'blue'
+  }`
+    },
+    {
+      title: "Setting default state", text: `class Hello extends Component {
+    constructor (props) {
+      super(props)
+      this.state = { visible: true }
+    }
   }
-}
-
-const el = document.body
-ReactDOM.render(<Hello name='John' />, el)
-
-`,
-  }]
+    
+  class Hello extends Component {
+      state = { visible: true }
+    }
+  }
+  `
+    }
+    ,
+    {
+      title: "Setting default state", text: `class Hello extends Component {
+    constructor (props) {
+      super(props)
+      this.state = { visible: true }
+    }
+  }
+    
+  class Hello extends Component {
+      state = { visible: true }
+    }
+  }
+  `
+    },
+    {
+      title: "Setting default state", text: `class Hello extends Component {
+    constructor (props) {
+      super(props)
+      this.state = { visible: true }
+    }
+  }
+    
+  class Hello extends Component {
+      state = { visible: true }
+    }
+  }
+  `
+    }
+  ]
 },
 {
   heading: 'Other Components', cheats: [{
@@ -46,31 +78,43 @@ ReactDOM.render(<Hello name='John' />, el)
       </div>
     }
   }`
-  }],
+  }]
 }]
 
 
-const Layout = ({ children }) => {
+const LayoutContainer = styled.div`
+display:flex;
+flex-flow: column wrap;
+padding: 100px 100px 50px 100px;
+`
+const TagsLayout = styled.div`
+display:flex;
+flex-flow:column ;
+flex: 1 1 auto;
+`
+const CheatCardsLayout = styled.div`
+display:flex;
+flex-flow:row wrap;
+flex: 1 1 auto;
+justify-content:space-between;
+`
+
+const Layout = () => {
   return (
     <>
-      <div
-        style={{
-          margin: `0 auto`,
-          // maxWidth: 700,
-          padding: `0px 1.0875rem 1.45rem`,
-          paddingTop: 0,
-        }}
-      >
+      <LayoutContainer>
         {
           data.map(head =>
-            (<div>
+            (<TagsLayout>
               <Tag tagTitle={head.heading} />
-              {head.cheats.map(cheat =>
-                <CheatCard cardTitle={cheat.title} cardText={cheat.text} />
-              )}
-            </div>))
+              <CheatCardsLayout>
+                {head.cheats.map(cheat => (
+                  <CheatCard cardTitle={cheat.title} cardText={cheat.text} />
+                ))}
+              </CheatCardsLayout>
+            </TagsLayout>))
         }
-      </div>
+      </LayoutContainer>
     </>
   )
 }

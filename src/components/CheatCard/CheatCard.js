@@ -4,88 +4,84 @@ import CopyButton from "../CopyButton/CopyButton"
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { coy } from 'react-syntax-highlighter/dist/esm/styles/prism'
 
-const CheatCardWrapper = styled.div`
-max-width: 500px;
-padding-top: 25px;
-`
-const HeadingWrapper = styled.div`
-
-`
-const Title = styled.h3`
-font-family: Operator Mono, arial, sans-serif;
+const CheatCardContainer = styled.div`
+display:flex;
+flex-flow:column wrap;
+width: 600px;
+margin-top:10px;
+margin-bottom:30px;
 `
 const HeadingLineWrapper = styled.div`
-margin: 15px;
-width: 100%; 
-`
-const CodeWrapper = styled.div`
-position: relative;
-
-& .ButtonHover{
-  display:none;
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-
-&:hover .ButtonHover{
-  display: block
-}
-`
-const TextWrapper = styled.pre`
-font-family: Operator Mono, arial, sans-serif;
-background-color:white;
-border-radius: 10px;
-padding: 20px 20px 0px 20px;
-font-weight: 200;
-box-shadow: 0 0 20px rgba(105, 105, 105, .3), 0 0px 40px rgba(105, 255, 255, .1);
-transition: all 0.3s ease 0s;
-
-:hover {
-font-weight: 500 !important;
-letter-spacing: 1px;
-transition: all 0.3s ease 0s;
-}
-`
-const TitleLineMerge = styled.div`
 display:flex;
-align-items: stretch;
-flex-direction:row;
+flex-flow:row wrap;
+flex: 0 1 auto;
+`
+const HeadingDiv = styled.div`
+flex: 1 1 auto;
+`
+const CheatCardHeading = styled.h3``
+
+const HeadingLineDiv = styled.div`
+flex: 15 1 auto;
 `
 const HeadingLine = styled.hr`
 background-image: linear-gradient(to left, rgba(0,255,0,0), rgba(0,255,0,1));
 height: 1px;
+margin-top: 20px;
 `
-const Highlighter = styled.div`
-width: 0px;
+const CodeDiv = styled.div`
+flex: 0 1 auto;
+box-shadow: 0 0 20px rgba(105, 105, 105, .3), 0 0px 40px rgba(105, 255, 255, .1);
 `
+const CodeWrapper = styled.pre`
+position: relative;
+flex: 0 1 auto;
+background-color:white;
+transition: all 0.5s ease 0s;
 
-const CheatCard = ({ cardTitle, cardText, tagTitle }) => {
+:hover {
+ letter-spacing: 0.5px;
+ transition: all 0.5s ease 0s;
+ }
+ & .Button{
+   display:none;
+   position: absolute;
+   top: 0;
+   right: 0;
+ }
+
+ &:hover .Button{
+   display: block
+ }
+`
+const HighLighter = styled.div`
+width: 100px;
+`
+const CheatCard = ({ cardTitle, cardText }) => {
   return (
     <>
-      <CheatCardWrapper>
-        <TitleLineMerge>
-          <HeadingWrapper>
-            <Title>
+      <CheatCardContainer>
+        <HeadingLineWrapper>
+          <HeadingDiv>
+            <CheatCardHeading>
               {cardTitle}
-            </Title>
-          </HeadingWrapper>
-          <HeadingLineWrapper>
+            </CheatCardHeading>
+          </HeadingDiv>
+          <HeadingLineDiv>
             <HeadingLine />
-          </HeadingLineWrapper>
-        </TitleLineMerge>
-
-        <CodeWrapper>
-          <TextWrapper>
-            <CopyButton className="ButtonHover" copyText={cardText}></CopyButton>
-            <Highlighter>
-              <SyntaxHighlighter language="javascript" style={coy}>
+          </HeadingLineDiv>
+        </HeadingLineWrapper>
+        <CodeDiv>
+          <CodeWrapper>
+            <CopyButton className="Button" copyText={cardText}></CopyButton>
+            <HighLighter>
+              <SyntaxHighlighter language="javascript" style={coy} >
                 {cardText}
               </SyntaxHighlighter>
-            </Highlighter>
-          </TextWrapper>
-        </CodeWrapper>
-      </CheatCardWrapper>
+            </HighLighter>
+          </CodeWrapper>
+        </CodeDiv>
+      </CheatCardContainer>
     </>
   )
 }

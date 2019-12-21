@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 
-const TagTitle = styled.h3`
+const TagTitle = styled.h1`
 font-family: Operator Mono, arial, sans-serif;
 `
 
