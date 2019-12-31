@@ -81,41 +81,26 @@ const data = [{
   }]
 }]
 
-
 const LayoutContainer = styled.div`
-display:flex;
-flex-flow: column wrap;
-padding: 100px 100px 50px 100px;
-`
-const TagsLayout = styled.div`
-display:flex;
-flex-flow:column ;
-flex: 1 1 auto;
-`
-const CheatCardsLayout = styled.div`
-display:flex;
-flex-flow:row wrap;
-flex: 1 1 auto;
-justify-content:space-between;
-`
+padding: 50px;`
 
 const Layout = () => {
   return (
-    <>
-      <LayoutContainer>
-        {
-          data.map(head =>
-            (<TagsLayout>
-              <Tag tagTitle={head.heading} />
-              <CheatCardsLayout>
-                {head.cheats.map(cheat => (
-                  <CheatCard cardTitle={cheat.title} cardText={cheat.text} />
-                ))}
-              </CheatCardsLayout>
-            </TagsLayout>))
-        }
-      </LayoutContainer>
-    </>
+
+    <LayoutContainer>
+      {
+        data.map(head =>
+          (<>
+
+            <Tag tagTitle={head.heading} />
+
+            {head.cheats.map(cheat => (
+              <CheatCard cardTitle={cheat.title} cardText={cheat.text} />
+            ))}
+
+          </>))
+      }
+    </LayoutContainer>
   )
 }
 
