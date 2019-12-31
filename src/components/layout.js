@@ -1,9 +1,10 @@
-import React from "react"
+import React, { useEffect } from "react"
 import PropTypes from "prop-types"
 import "./layout.css"
 import styled from "styled-components"
 import CheatCard from "./CheatCard/CheatCard"
 import Tag from "./Tag/Tag"
+import Masonry from 'masonry-layout';
 
 const data = [{
   heading: `Defaults`,
@@ -82,21 +83,32 @@ const data = [{
 }]
 
 const LayoutContainer = styled.div`
-padding: 50px;`
+padding: 100px;
+background-color: #2E3440;
+`
+
 
 const Layout = () => {
+  useEffect(() => {
+    const grids = document.querySelector('.grid');
+    var msnry = new Masonry(grids, {
+      itemSelector: '.grid-item',
+      columnWidth: 50,
+      gutter: 20
+    });
+  }, []);
   return (
-
     <LayoutContainer>
       {
         data.map(head =>
           (<>
 
             <Tag tagTitle={head.heading} />
-
-            {head.cheats.map(cheat => (
-              <CheatCard cardTitle={cheat.title} cardText={cheat.text} />
-            ))}
+            <div className="grid">
+              {head.cheats.map(cheat => (
+                <CheatCard cardTitle={cheat.title} cardText={cheat.text} className="grid-item" />
+              ))}
+            </div>
 
           </>))
       }

@@ -12,31 +12,22 @@ margin-bottom:30px;
 justify-content:flex-start;
 padding: 0px;
 `
-const HeadingLineWrapper = styled.div`
+const HeadingWrapper = styled.div`
 display:flex;
 flex-flow:row wrap;
 flex: 0 1 auto;
 `
-const HeadingDiv = styled.div`
+const CheatCardHeading = styled.h3`
 flex: 1 1 auto;
-`
-const CheatCardHeading = styled.h3``
-
-const HeadingLineDiv = styled.div`
-flex: 15 1 auto;
-`
-const HeadingLine = styled.hr`
-background-image: linear-gradient(to left, rgba(0,255,0,0), rgba(0,255,0,1));
-height: 1px;
-margin-top: 15px;
+color:whitesmoke;
 `
 
 const CodeWrapper = styled.pre`
 position: relative;
 flex: 0 1 auto;
-background-color:white;
+background-color:#3B4252;
 transition: all 0.5s ease 0s;
-box-shadow: 0 0 20px rgba(105, 105, 105, .3), 0 0px 40px rgba(105, 255, 255, .1);
+/* box-shadow: 0 0 20px rgba(105, 105, 105, .3), 0 0px 40px rgba(105, 255, 255, .1); */
 padding-bottom:0px;
 
 :hover {
@@ -55,35 +46,31 @@ padding-bottom:0px;
  }
 `
 const HighLighter = styled.div`
-width: 100px;
+width: 0px;
 flex: 0 1 auto;
 padding:0px;
+/* color:#3B4252; */
 `
-const CheatCard = ({ cardTitle, cardText }) => {
+const CheatCard = ({ cardTitle, cardText, className }) => {
   return (
-    <>
-      <CheatCardContainer>
-        <HeadingLineWrapper>
-          <HeadingDiv>
-            <CheatCardHeading>
-              {cardTitle}
-            </CheatCardHeading>
-          </HeadingDiv>
-          <HeadingLineDiv>
-            <HeadingLine />
-          </HeadingLineDiv>
-        </HeadingLineWrapper>
-        <CodeWrapper>
-          <CopyButton className="Button" copyText={cardText}></CopyButton>
-          <HighLighter>
-            <SyntaxHighlighter language="javascript" style={coy} >
-              {cardText}
-            </SyntaxHighlighter>
-          </HighLighter>
-        </CodeWrapper>
+    <CheatCardContainer className={className}>
+      <HeadingWrapper>
 
-      </CheatCardContainer>
-    </>
+        <CheatCardHeading>
+          {cardTitle}
+        </CheatCardHeading>
+
+      </HeadingWrapper>
+      <CodeWrapper>
+        <CopyButton className="Button" copyText={cardText}></CopyButton>
+        <HighLighter>
+          <SyntaxHighlighter language="javascript" style={coy} >
+            {cardText}
+          </SyntaxHighlighter>
+        </HighLighter>
+      </CodeWrapper>
+
+    </CheatCardContainer >
   )
 }
 
