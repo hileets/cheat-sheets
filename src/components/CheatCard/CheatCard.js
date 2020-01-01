@@ -30,11 +30,11 @@ flex: 0 1 auto;
 padding-bottom: 0px;
 background-color:#2E3440;
 box-shadow: 0px 0px 2px rgba(105, 105, 105, .5), 0px 0px 0px rgba(105, 255, 255, .5);
-transition:all 1s ease 0s;
+transition:all 1s ;
 
 :hover {
   box-shadow: 0 0 0px rgba(105, 105, 105, .3), 0 0px 0px rgba(105, 255, 255, .1);
-  transition:all 0.7s ease 0s;
+  transition:all 1s ease 0s;
   border: 1px solid #8ABCBB;
  }
  & .Button{
@@ -59,12 +59,11 @@ const CheatCard = ({ cardTitle, cardText, className }) => {
   return (
     <CheatCardContainer className={className}>
       <HeadingWrapper>
-
         <CheatCardHeading>
           {cardTitle}
         </CheatCardHeading>
-
       </HeadingWrapper>
+
       <CodeWrapper>
         <CopyButton className="Button" copyText={cardText}></CopyButton>
         <SyntaxHighlighter language="javascript" style={nord} >
