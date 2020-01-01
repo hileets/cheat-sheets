@@ -56,7 +56,59 @@ const data = [{
     }
   }
   `
+    },
+    {
+      title: "Setting default state", text: `class Hello extends Component {
+    constructor (props) {
+      super(props)
+      this.state = { visible: true }
     }
+  }
+    
+  class Hello extends Component {
+      state = { visible: true }
+    }
+  }
+  `
+    },
+    {
+      title: "Setting default state", text: `class Hello extends Component {
+    constructor (props) {
+      super(props)
+      this.state = { visible: true }
+    }
+  }
+    
+  class Hello extends Component {
+      state = { visible: true }
+    }
+  }
+  `
+    },
+    {
+      title: "Setting default state", text: `class Hello extends Component {
+    constructor (props) {
+      super(props)
+      this.state = { visible: true }
+    }
+  }
+    
+  class Hello extends Component {
+      state = { visible: true }
+    }
+  }
+  `
+    },
+    {
+      title: "Setting default props", text: `Hello.defaultProps = {
+    color: 'blue'
+  }`
+    },
+    {
+      title: "Setting default props", text: `Hello.defaultProps = {
+    color: 'blue'
+  }`
+    },
   ]
 },
 {
@@ -86,7 +138,6 @@ const LayoutContainer = styled.div`
 padding: 100px;
 background-color: #2E3440;
 margin-top: -30px;
-
 `
 const MainHeading = styled.h1`
 display: flex;

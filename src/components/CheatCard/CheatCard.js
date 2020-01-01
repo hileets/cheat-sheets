@@ -27,11 +27,12 @@ position: relative;
 flex: 0 1 auto;
 background-color:#2E3440;
 padding-bottom:0px;
-box-shadow:0 0 20px rgba(59, 66, 82, .6), 0 0px 40px rgba(59, 66, 82, .6);;
+box-shadow:0 0 20px rgba(59, 66, 82, .3), 0 0px 40px rgba(59, 66, 82, .3);
+transition:all 5s ease 0s;
 
 :hover {
   box-shadow: 0 0 20px rgba(105, 105, 105, .3), 0 0px 40px rgba(105, 255, 255, .1);
-  transition:all 0.3s ease 0s;
+  transition:all 0.6s ease 0s;
   border: 1px solid #8ABCBB;
  }
  & .Button{
