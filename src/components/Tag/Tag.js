@@ -4,18 +4,21 @@ import styled from "styled-components"
 const TagTitle = styled.div`
 display:flex;
 flex-flow: row wrap;
+margin-top: -30px;
 `
 const TagName = styled.h1`
-font-family: Operator Mono, arial, sans-serif;
+font-family: 'Work Sans', sans-serif;
 flex: 1 1 auto;
-color: whitesmoke;
+color: #DFE5F2;
 `
 const TagLine = styled.hr`
 /* background-image: linear-gradient(to left, rgba(0,255,0,0), rgba(0,255,0,1)); */
-border-top: 1px dotted;
+border-top: 5px dotted;
 flex: 1 1 auto;
 height: 1px;
 margin-top: 15px;
+color: #4C566A;
+background-color: #2E3440;
 `
 
 const Tag = ({ tagTitle }) => {

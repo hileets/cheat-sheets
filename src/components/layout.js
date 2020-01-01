@@ -85,8 +85,20 @@ const data = [{
 const LayoutContainer = styled.div`
 padding: 100px;
 background-color: #2E3440;
-`
+margin-top: -30px;
 
+`
+const MainHeading = styled.h1`
+display: flex;
+flex-flow: row wrap;
+justify-content: center;
+background-color:#2E3440;
+font-family: 'Work Sans',sans-serif;
+font-style: italic;
+font-weight: bold;
+font-size:100px;
+color:#3B414D;
+`
 
 const Layout = () => {
   useEffect(() => {
@@ -97,22 +109,28 @@ const Layout = () => {
       gutter: 20
     });
   }, []);
+
   return (
-    <LayoutContainer>
-      {
-        data.map(head =>
-          (<>
+    <>
+      <MainHeading>
+        React JS Cheat Sheet
+      </MainHeading>
+      <LayoutContainer>
+        {
+          data.map(head =>
+            (<>
 
-            <Tag tagTitle={head.heading} />
-            <div className="grid">
-              {head.cheats.map(cheat => (
-                <CheatCard cardTitle={cheat.title} cardText={cheat.text} className="grid-item" />
-              ))}
-            </div>
+              <Tag tagTitle={head.heading} />
+              <div className="grid">
+                {head.cheats.map(cheat => (
+                  <CheatCard cardTitle={cheat.title} cardText={cheat.text} className="grid-item" />
+                ))}
+              </div>
 
-          </>))
-      }
-    </LayoutContainer>
+            </>))
+        }
+      </LayoutContainer>
+    </>
   )
 }
 
