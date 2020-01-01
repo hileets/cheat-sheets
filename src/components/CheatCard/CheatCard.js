@@ -8,7 +8,6 @@ const CheatCardContainer = styled.div`
 display:flex;
 flex-flow:column wrap;
 width: 400px;
-/* margin-bottom:3px; */
 justify-content:flex-start;
 padding: 0px;
 transition:all 0.3s ease 0s;
@@ -22,19 +21,20 @@ const CheatCardHeading = styled.h3`
 flex: 1 1 auto;
 font-weight: 400;
 font-family: 'Work Sans', sans-serif;
+font-size: 20px;
 color:#8ABCBB;
 `
 const CodeWrapper = styled.pre`
 position: relative;
 flex: 0 1 auto;
+padding-bottom: 0px;
 background-color:#2E3440;
-padding-bottom:0px;
-box-shadow:0 0 20px rgba(59, 66, 82, .3), 0 0px 40px rgba(59, 66, 82, .3);
-transition:all 5s ease 0s;
+box-shadow: 0px 0px 2px rgba(105, 105, 105, .5), 0px 0px 0px rgba(105, 255, 255, .5);
+transition:all 1s ease 0s;
 
 :hover {
-  box-shadow: 0 0 20px rgba(105, 105, 105, .3), 0 0px 40px rgba(105, 255, 255, .1);
-  transition:all 0.6s ease 0s;
+  box-shadow: 0 0 0px rgba(105, 105, 105, .3), 0 0px 0px rgba(105, 255, 255, .1);
+  transition:all 0.7s ease 0s;
   border: 1px solid #8ABCBB;
  }
  & .Button{
@@ -67,11 +67,9 @@ const CheatCard = ({ cardTitle, cardText, className }) => {
       </HeadingWrapper>
       <CodeWrapper>
         <CopyButton className="Button" copyText={cardText}></CopyButton>
-        {/* <HighLighter> */}
         <SyntaxHighlighter language="javascript" style={nord} >
           {cardText}
         </SyntaxHighlighter>
-        {/* </HighLighter> */}
       </CodeWrapper>
 
     </CheatCardContainer >

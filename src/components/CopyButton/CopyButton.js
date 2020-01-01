@@ -17,7 +17,7 @@ font-weight: 700 !important;
 letter-spacing: 3px;
 /* border: 1px solid #00E676; */
 background: none;
-box-shadow: 0 0 20px rgba(105, 105, 105, .3), 0 0px 40px rgba(105, 255, 255, .1);
+box-shadow: 0 0 10px rgba(105, 105, 105, .3), 0 0px 10px rgba(105, 255, 255, .1);
 transition: all 0.3s ease 0s;
 }
 
