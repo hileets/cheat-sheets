@@ -2,6 +2,9 @@ import React, { useEffect } from "react"
 import PropTypes from "prop-types"
 import "./layout.css"
 import styled from "styled-components"
+// import { ThemeProvider } from 'styled-components';
+// import { lightTheme, darkTheme } from './themes';
+// import { GlobalStyles } from './global';
 import CheatCard from "./CheatCard/CheatCard"
 import Tag from "./Tag/Tag"
 import Masonry from 'masonry-layout';
@@ -137,8 +140,11 @@ const data = [{
 const LayoutContainer = styled.div`
 padding: 100px;
 background-color: #2E3440;
-margin-top: -30px;
+margin-top:-30px;
+display:flex;
+flex-flow:column;
 `
+
 const MainHeading = styled.h1`
 display: flex;
 flex-flow: row wrap;
@@ -146,7 +152,7 @@ justify-content: center;
 background-color:#2E3440;
 font-family: 'Work Sans',sans-serif;
 font-style: italic;
-font-weight: bold;
+font-weight: 900;
 font-size:100px;
 color:#3B414D;
 `
@@ -162,9 +168,10 @@ const Layout = () => {
   }, []);
 
   return (
+    // <ThemeProvider theme={lightTheme}>
     <>
       <MainHeading>
-        React JS Cheat Sheet
+        react native
       </MainHeading>
       <LayoutContainer>
         {
@@ -182,6 +189,7 @@ const Layout = () => {
         }
       </LayoutContainer>
     </>
+    // </ThemeProvider>
   )
 }
 

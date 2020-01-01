@@ -8,7 +8,7 @@ const CheatCardContainer = styled.div`
 display:flex;
 flex-flow:column wrap;
 width: 400px;
-margin-bottom:30px;
+/* margin-bottom:3px; */
 justify-content:flex-start;
 padding: 0px;
 transition:all 0.3s ease 0s;
@@ -20,6 +20,8 @@ flex: 0 1 auto;
 `
 const CheatCardHeading = styled.h3`
 flex: 1 1 auto;
+font-weight: 400;
+font-family: 'Work Sans', sans-serif;
 color:#8ABCBB;
 `
 const CodeWrapper = styled.pre`
