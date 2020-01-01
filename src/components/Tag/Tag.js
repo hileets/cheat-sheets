@@ -13,7 +13,7 @@ flex: 1 1 auto;
 font-size: 50px;
 font-weight: 500;
 color: #729AC1;
-padding-left: 20px;
+padding-left: 10px;
 `
 const TagLine = styled.hr`
 /* background-image: linear-gradient(to left, rgba(0,255,0,0), rgba(0,255,0,1)); */

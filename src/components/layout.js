@@ -153,8 +153,9 @@ background-color:#2E3440;
 font-family: 'Work Sans',sans-serif;
 font-style: italic;
 font-weight: 900;
-font-size:100px;
+font-size:16vw;
 color:#3B414D;
+padding-top:100px;
 `
 
 const Layout = () => {
