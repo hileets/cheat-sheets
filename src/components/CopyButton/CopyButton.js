@@ -25,7 +25,6 @@ transition: all 0.3s ease 0s;
     transform:translateY(10px) translateX(-10px)
 }
 `
-
 const CopyIcon = styled(Copy)`
 color: #8ABCBB;
 `
