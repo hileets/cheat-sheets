@@ -12,7 +12,7 @@ font-family: 'Work Sans', sans-serif;
 flex: 1 1 auto;
 font-size: 50px;
 font-weight: 500;
-color: #729AC1;
+color: #5E81AC;
 padding-left: 10px;
 `
 const TagLine = styled.hr`

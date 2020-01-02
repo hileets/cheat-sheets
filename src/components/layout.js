@@ -144,17 +144,32 @@ margin-top:-30px;
 display:flex;
 flex-flow:column;
 `
-const MainHeading = styled.h1`
+const Heading = styled.div`
+/* padding-top:100px; */
 display: flex;
-flex-flow: row wrap;
+flex-flow: column wrap;
 justify-content: center;
 background-color:#2E3440;
+`
+const MainHeading = styled.h1`
+flex: 1 1 auto;
 font-family: 'Work Sans',sans-serif;
 font-style: italic;
 font-weight: 900;
 font-size:16vw;
 color:#3B414D;
-padding-top:100px;
+margin-bottom:-20px;
+`
+const SubHeading = styled.h3`
+flex: 1 1 auto;
+margin-top:-30px;
+margin-right:60px;
+align-self: flex-end;
+font-family: 'Work Sans',sans-serif;
+font-style: italic;
+font-weight: 600;
+font-size:5vw;
+color:#3B414D;
 `
 
 const Layout = () => {
@@ -170,9 +185,14 @@ const Layout = () => {
   return (
     // <ThemeProvider theme={lightTheme}>
     <>
-      <MainHeading>
-        react native
+      <Heading>
+        <MainHeading>
+          react native
       </MainHeading>
+        <SubHeading>
+          Cheat Sheet
+      </SubHeading>
+      </Heading>
       <LayoutContainer>
         {
           data.map(head =>
