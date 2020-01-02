@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components"
-import CopyButton from "../CopyButton/CopyButton"
+import { CopyToClipboard } from 'react-copy-to-clipboard';
+import { CopyAlt } from 'styled-icons/boxicons-solid/CopyAlt';
 import SyntaxHighlighter from 'react-syntax-highlighter'
 import { nord } from 'react-syntax-highlighter/dist/esm/styles/hljs'
 
@@ -29,10 +30,10 @@ flex: 0 1 auto;
 padding-bottom: 0px;
 background-color:#2E3440;
 box-shadow: 0px 0px 4px rgba(105, 105, 105, .5), 0px 0px 1px rgba(105, 255, 255, .5);
+border: 1px solid transparent;
 border-radius:5px;
-transition:2s;
+transition:1s;
 :hover {
-  box-shadow: 0 0 0px rgba(105, 105, 105, .3), 0 0px 0px rgba(105, 255, 255, .1);
   border: 1px solid #729AC1;
   transition:1s;
  }
@@ -44,17 +45,28 @@ transition:2s;
    margin-right:0px;
    top: 0;
    right: 0;
-   transition:2s;  
-   background-color:#8ABCBB;
-   border-radius:5px;
+   transition:0.5s;  
+   border-radius:0px 0px 0px 5px ; 
    padding:5px;
+   color:#8ABCBB;
    :hover{
-     border-radius:5px;     
-     transition:1s;
+   background-color:#8ABCBB;
+   border-radius:0px 0px 0px 5px ;     
+   transition:0.5s;
    }
  }
 `
-const CheatCard = ({ cardTitle, cardText, className }) => {
+const CopyIcon = styled(CopyAlt)`
+:hover{
+  color: #2E3440;
+}
+
+`
+const IconWrapper = styled.div`
+padding:5px;
+`
+
+const CheatCard = ({ cardTitle, cardText, className, ...props }) => {
   return (
     <CheatCardContainer className={className}>
       <HeadingWrapper>
@@ -64,7 +76,9 @@ const CheatCard = ({ cardTitle, cardText, className }) => {
       </HeadingWrapper>
 
       <CodeWrapper>
-        <CopyButton className="Button" copyText={cardText}></CopyButton>
+        <CopyToClipboard text={cardText}{...props}>
+          <CopyIcon className="Button" size="35" />
+        </CopyToClipboard>
         <SyntaxHighlighter language="javascript" style={nord} >
           {cardText}
         </SyntaxHighlighter>
