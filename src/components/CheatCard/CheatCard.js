@@ -23,7 +23,7 @@ flex: 1 1 auto;
 font-weight: 400;
 font-family: 'Work Sans', sans-serif;
 font-size: 20px;
-color:#8FBCBB;
+color:#A3BE8C;
 `
 const CodeWrapper = styled.pre`
 position: relative;
@@ -51,7 +51,7 @@ transition:1s;
    padding:5px;
    color:#8FBCBB;
    :hover{
-   background-color:#8FBCBB;
+   background-color:#A3BE8C;
    border-radius:0px 0px 0px 5px ;     
    transition:0.5s;
    }

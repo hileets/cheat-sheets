@@ -21,7 +21,7 @@ border-top: 5px dotted;
 flex: 35 1 auto;
 height: 1px;
 margin-top: 25px;
-color: #4C566A;
+color: #88C0D0;
 background-color: #2E3440;
 `
 

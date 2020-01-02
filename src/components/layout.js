@@ -157,19 +157,21 @@ font-family: 'Work Sans',sans-serif;
 font-style: italic;
 font-weight: 900;
 font-size:16vw;
-color:#3B414D;
+color:#88C0D0;
+
 margin-bottom:-20px;
 `
 const SubHeading = styled.h3`
 flex: 1 1 auto;
 margin-top:-30px;
 margin-right:60px;
+margin-bottom:-50px;
 align-self: flex-end;
 font-family: 'Work Sans',sans-serif;
 font-style: italic;
 font-weight: 600;
 font-size:5vw;
-color:#3B414D;
+color:#A3BE8C;
 `
 
 const Layout = () => {
