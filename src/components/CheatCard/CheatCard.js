@@ -10,7 +10,6 @@ flex-flow:column wrap;
 width: 400px;
 justify-content:flex-start;
 padding: 0px;
-transition:all 0.3s ease 0s;
 `
 const HeadingWrapper = styled.div`
 display:flex;
@@ -30,30 +29,28 @@ flex: 0 1 auto;
 padding-bottom: 0px;
 background-color:#2E3440;
 box-shadow: 0px 0px 2px rgba(105, 105, 105, .5), 0px 0px 0px rgba(105, 255, 255, .5);
-transition:all 1s ;
-
+/* border:1px solid ; */
+transition:1s;
 :hover {
   box-shadow: 0 0 0px rgba(105, 105, 105, .3), 0 0px 0px rgba(105, 255, 255, .1);
-  transition:all 1s ease 0s;
   border: 1px solid #8ABCBB;
+  transition:1s;
  }
+
  & .Button{
-   display:none;
+   display:block;
    position: absolute;
    margin-top:5px;
    margin-right:5px;
    top: 0;
    right: 0;
+    transition:1s;
+   :hover{
+     border:1px solid #8ABCBB;
+     border-radius:2px;     
+     transition:1s;
+   }
  }
-
- &:hover .Button{
-   display: block
- }
-`
-const HighLighter = styled.div`
-/* width: 0px; */
-/* flex: 0 1 auto; */
-/* padding:0px; */
 `
 const CheatCard = ({ cardTitle, cardText, className }) => {
   return (

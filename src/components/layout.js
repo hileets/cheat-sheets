@@ -144,7 +144,6 @@ margin-top:-30px;
 display:flex;
 flex-flow:column;
 `
-
 const MainHeading = styled.h1`
 display: flex;
 flex-flow: row wrap;
