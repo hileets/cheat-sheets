@@ -1,13 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-import { Copy } from 'styled-icons/feather/Copy';
+import { CopyAlt } from 'styled-icons/boxicons-solid/CopyAlt';
 
 const IconWrapper = styled.div`
 padding:3px;
 `
-const CopyIcon = styled(Copy)`
-color: white;
+const CopyIcon = styled(CopyAlt)`
+color: #2E3440;
+font-weight:bold;
     :active{
     transform: translate3d(-1px, 1px, -1px);
 }

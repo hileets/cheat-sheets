@@ -28,26 +28,28 @@ position: relative;
 flex: 0 1 auto;
 padding-bottom: 0px;
 background-color:#2E3440;
-box-shadow: 0px 0px 2px rgba(105, 105, 105, .5), 0px 0px 0px rgba(105, 255, 255, .5);
-/* border:1px solid ; */
-transition:1s;
+box-shadow: 0px 0px 4px rgba(105, 105, 105, .5), 0px 0px 1px rgba(105, 255, 255, .5);
+border-radius:5px;
+transition:2s;
 :hover {
   box-shadow: 0 0 0px rgba(105, 105, 105, .3), 0 0px 0px rgba(105, 255, 255, .1);
-  border: 1px solid #8ABCBB;
+  border: 1px solid #729AC1;
   transition:1s;
  }
 
  & .Button{
    display:block;
    position: absolute;
-   margin-top:5px;
-   margin-right:5px;
+   margin-top:0px;
+   margin-right:0px;
    top: 0;
    right: 0;
-    transition:1s;
+   transition:2s;  
+   background-color:#8ABCBB;
+   border-radius:5px;
+   padding:5px;
    :hover{
-     border:1px solid #8ABCBB;
-     border-radius:2px;     
+     border-radius:5px;     
      transition:1s;
    }
  }
