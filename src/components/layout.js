@@ -2,12 +2,9 @@ import React, { useEffect } from "react"
 import PropTypes from "prop-types"
 import "./layout.css"
 import styled from "styled-components"
-// import { ThemeProvider } from 'styled-components';
-// import { lightTheme, darkTheme } from './themes';
-// import { GlobalStyles } from './global';
 import CheatCard from "./CheatCard/CheatCard"
 import Tag from "./Tag/Tag"
-import Masonry from 'masonry-layout';
+import Masonry from 'masonry-layout'
 
 const data = [{
   heading: `Defaults`,
@@ -145,7 +142,6 @@ display:flex;
 flex-flow:column;
 `
 const Heading = styled.div`
-/* padding-top:100px; */
 display: flex;
 flex-flow: column wrap;
 justify-content: center;
@@ -158,7 +154,6 @@ font-style: italic;
 font-weight: 900;
 font-size:16vw;
 color:#88C0D0;
-
 margin-bottom:-20px;
 `
 const SubHeading = styled.h3`
@@ -185,7 +180,6 @@ const Layout = () => {
   }, []);
 
   return (
-    // <ThemeProvider theme={lightTheme}>
     <>
       <Heading>
         <MainHeading>
@@ -199,19 +193,16 @@ const Layout = () => {
         {
           data.map(head =>
             (<>
-
               <Tag tagTitle={head.heading} />
               <div className="grid">
                 {head.cheats.map(cheat => (
                   <CheatCard cardTitle={cheat.title} cardText={cheat.text} className="grid-item" />
                 ))}
               </div>
-
             </>))
         }
       </LayoutContainer>
     </>
-    // </ThemeProvider>
   )
 }
 

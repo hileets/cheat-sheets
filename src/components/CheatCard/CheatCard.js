@@ -62,7 +62,7 @@ const CopyIcon = styled(CopyAlt)`
   color:#3B4252;
 }
 `
-const Footer = styled.div`
+const DescriptionFooter = styled.div`
 /* margin-top:-20px; */
 /* padding:20px; */
 border: 1px solid white;
@@ -76,7 +76,6 @@ const CheatCard = ({ cardTitle, cardText, className, ...props }) => {
           {cardTitle}
         </CheatCardHeading>
       </HeadingWrapper>
-
       <CodeWrapper>
         <CopyToClipboard text={cardText}{...props}>
           <CopyIcon className="Button" size="35" />
