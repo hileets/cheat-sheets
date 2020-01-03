@@ -1,10 +1,12 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import PropTypes from "prop-types"
 import "./layout.css"
-import styled from "styled-components"
+import styled, { ThemeProvider } from "styled-components"
 import CheatCard from "./CheatCard/CheatCard"
 import Tag from "./Tag/Tag"
 import Masonry from 'masonry-layout'
+import { lightTheme, darkTheme } from '../Themes/theme'
+import { GlobalStyles } from '../Themes/global'
 
 const data = [{
   heading: `Defaults`,
@@ -153,7 +155,7 @@ font-family: 'Work Sans',sans-serif;
 font-style: italic;
 font-weight: 900;
 font-size:16vw;
-color:#88C0D0;
+/* color:#88C0D0; */
 margin-bottom:-20px;
 `
 const SubHeading = styled.h3`
@@ -166,7 +168,18 @@ font-family: 'Work Sans',sans-serif;
 font-style: italic;
 font-weight: 600;
 font-size:5vw;
-color:#A3BE8C;
+/* color:#A3BE8C; */
+`
+const ToggleButtonWrapper = styled.div`
+display:flex;
+justify-content: center;
+background-color:#2E3440;
+padding:50px;
+`
+
+const ToggleButton = styled.button`
+background-color:#A3BE8C;
+font-size:bold;
 `
 
 const Layout = () => {
@@ -179,30 +192,48 @@ const Layout = () => {
     });
   }, []);
 
+  const [theme, setTheme] = useState('light');
+
+  const toggleTheme = () => {
+    // if the theme is not light, then set it to dark
+    if (theme === 'light') {
+      setTheme('dark');
+      // otherwise, it should be light
+    } else {
+      setTheme('light');
+    }
+  }
+
   return (
-    <>
-      <Heading>
-        <MainHeading>
-          react native
-      </MainHeading>
-        <SubHeading>
-          Cheat Sheet
-      </SubHeading>
-      </Heading>
-      <LayoutContainer>
-        {
-          data.map(head =>
-            (<>
-              <Tag tagTitle={head.heading} />
-              <div className="grid">
-                {head.cheats.map(cheat => (
-                  <CheatCard cardTitle={cheat.title} cardText={cheat.text} className="grid-item" />
-                ))}
-              </div>
-            </>))
-        }
-      </LayoutContainer>
-    </>
+    <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+      <>
+        <GlobalStyles />
+        <ToggleButtonWrapper className='toggleButton'>
+          <ToggleButton onClick={toggleTheme}>Toggle Theme</ToggleButton>
+        </ToggleButtonWrapper>
+        <Heading>
+          <MainHeading className='mainHeading'>
+            react native
+          </MainHeading>
+          <SubHeading className='subHeading'>
+            Cheat Sheet
+          </SubHeading>
+        </Heading>
+        <LayoutContainer>
+          {
+            data.map(head =>
+              (<>
+                <Tag tagTitle={head.heading} />
+                <div className="grid">
+                  {head.cheats.map(cheat => (
+                    <CheatCard cardTitle={cheat.title} cardText={cheat.text} className="grid-item" />
+                  ))}
+                </div>
+              </>))
+          }
+        </LayoutContainer>
+      </>
+    </ThemeProvider>
   )
 }
 

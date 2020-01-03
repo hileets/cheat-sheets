@@ -68,7 +68,7 @@ const DescriptionFooter = styled.div`
 border: 1px solid white;
 `
 
-const CheatCard = ({ cardTitle, cardText, className, ...props }) => {
+const CheatCard = ({ cardTitle, cardText, className }) => {
   return (
     <CheatCardContainer className={className}>
       <HeadingWrapper>
@@ -77,15 +77,13 @@ const CheatCard = ({ cardTitle, cardText, className, ...props }) => {
         </CheatCardHeading>
       </HeadingWrapper>
       <CodeWrapper>
-        <CopyToClipboard text={cardText}{...props}>
+        <CopyToClipboard text={cardText}>
           <CopyIcon className="Button" size="35" />
         </CopyToClipboard>
         <SyntaxHighlighter language="javascript" style={nord} >
           {cardText}
         </SyntaxHighlighter>
       </CodeWrapper>
-
-
     </CheatCardContainer >
   )
 }
