@@ -138,7 +138,6 @@ const data = [{
 
 const LayoutContainer = styled.div`
 padding: 100px;
-background-color: #2E3440;
 margin-top:-30px;
 display:flex;
 flex-flow:column;
@@ -155,7 +154,6 @@ font-family: 'Work Sans',sans-serif;
 font-style: italic;
 font-weight: 900;
 font-size:16vw;
-/* color:#88C0D0; */
 margin-bottom:-20px;
 `
 const SubHeading = styled.h3`
@@ -168,15 +166,12 @@ font-family: 'Work Sans',sans-serif;
 font-style: italic;
 font-weight: 600;
 font-size:5vw;
-/* color:#A3BE8C; */
 `
 const ToggleButtonWrapper = styled.div`
 display:flex;
 justify-content: center;
-background-color:#2E3440;
 padding:50px;
 `
-
 const ToggleButton = styled.button`
 background-color:#A3BE8C;
 font-size:bold;
@@ -208,7 +203,7 @@ const Layout = () => {
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
       <>
         <GlobalStyles />
-        <ToggleButtonWrapper className='toggleButton'>
+        <ToggleButtonWrapper className='toggleButtonWrapper'>
           <ToggleButton onClick={toggleTheme}>Toggle Theme</ToggleButton>
         </ToggleButtonWrapper>
         <Heading>
@@ -219,7 +214,7 @@ const Layout = () => {
             Cheat Sheet
           </SubHeading>
         </Heading>
-        <LayoutContainer>
+        <LayoutContainer className='layoutContainer'>
           {
             data.map(head =>
               (<>
