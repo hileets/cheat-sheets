@@ -11,7 +11,6 @@ flex-flow:column wrap;
 width: 400px;
 justify-content:flex-start;
 padding: 0px;
-
 `
 const HeadingWrapper = styled.div`
 display:flex;
@@ -23,13 +22,13 @@ flex: 1 1 auto;
 font-weight: 400;
 font-family: 'Work Sans', sans-serif;
 font-size: 20px;
-color:#A3BE8C;
+/* color:#A3BE8C; */
 `
 const CodeWrapper = styled.pre`
 position: relative;
 flex: 0 1 auto;
 padding-bottom: 0px;
-background-color:#2E3440;
+/* background-color:#2E3440; */
 box-shadow: 0px 0px 4px rgba(105, 105, 105, .5), 0px 0px 1px rgba(105, 255, 255, .5);
 border: 1.5px solid transparent;
 border-radius:5px;
@@ -72,11 +71,11 @@ const CheatCard = ({ cardTitle, cardText, className }) => {
   return (
     <CheatCardContainer className={className}>
       <HeadingWrapper>
-        <CheatCardHeading>
+        <CheatCardHeading className="cheatCardHeading">
           {cardTitle}
         </CheatCardHeading>
       </HeadingWrapper>
-      <CodeWrapper>
+      <CodeWrapper className="codeWrapper">
         <CopyToClipboard text={cardText}>
           <CopyIcon className="Button" size="35" />
         </CopyToClipboard>

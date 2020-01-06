@@ -31,4 +31,13 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.tagLineColor};
     background-color: ${({ theme }) => theme.tagLineBackgroundColor};
   }
+
+  .cheatCardHeading{
+    color: ${({ theme }) => theme.cheatCardHeadingColor};
+  }
+
+  .codeWrapper{
+    background-color: ${({ theme }) => theme.codeWrapperBackgroundColor};
+  }
+
   `
