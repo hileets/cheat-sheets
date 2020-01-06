@@ -177,7 +177,18 @@ const ToggleButtonWrapper = styled.div`
 display:flex;
 justify-content: flex-end;
 `
-const ThemeToggleIcon = styled(Sun)``
+const LightIcon = styled(Moon)`
+color: #BF616A;
+:hover{
+  cursor: pointer;
+}
+`
+const DarkIcon = styled(Sun)`
+color: #88C0D0;
+:hover{
+  cursor: pointer;
+}
+`
 
 const Layout = () => {
   useEffect(() => {
@@ -207,7 +218,8 @@ const Layout = () => {
         <GlobalStyles />
         <LayoutContainerWrapper>
           <ToggleButtonWrapper className='toggleButtonWrapper'>
-            <ThemeToggleIcon onClick={toggleTheme} size="35" />
+            {theme === 'light' && <LightIcon onClick={toggleTheme} size="35" />}
+            {theme === 'dark' && <DarkIcon onClick={toggleTheme} size="35" />}
 
 
           </ToggleButtonWrapper>
