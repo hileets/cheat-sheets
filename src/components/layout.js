@@ -4,12 +4,12 @@ import "./layout.css"
 import styled, { ThemeProvider } from "styled-components"
 import CheatCard from "./CheatCard/CheatCard"
 import Tag from "./Tag/Tag"
-import Masonry from 'masonry-layout'
 import { lightTheme, darkTheme } from '../Themes/theme'
 import { GlobalStyles } from '../Themes/global'
 import { Sun } from "styled-icons/boxicons-regular/Sun"
 import { Moon } from "styled-icons/boxicons-regular/Moon"
-
+// import Masonry from 'masonry-layout'
+// const Masonry = require('masonry-layout');
 const data = [{
   heading: `Defaults`,
   cheats: [
@@ -193,6 +193,7 @@ color: #88C0D0;
 const Layout = () => {
   useEffect(() => {
     const grids = document.querySelector('.grid');
+    const Masonry = require('masonry-layout');
     new Masonry(grids, {
       itemSelector: '.grid-item',
       columnWidth: 50,
