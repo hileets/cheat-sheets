@@ -1,8 +1,9 @@
-import React from "react"
-import styled from "styled-components"
+import React, { useContext } from "react"
+import styled, { ThemeContext } from "styled-components"
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { CopyAlt } from 'styled-icons/boxicons-solid/CopyAlt'
-import SyntaxHighlighter from 'react-syntax-highlighter'
+// import SyntaxHighlighter from 'react-syntax-highlighter'
+import { Light as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { nord } from 'react-syntax-highlighter/dist/esm/styles/hljs'
 
 const CheatCardContainer = styled.div`
@@ -22,23 +23,18 @@ flex: 1 1 auto;
 font-weight: 400;
 font-family: 'Work Sans', sans-serif;
 font-size: 20px;
-/* color:#A3BE8C; */
 `
 const CodeWrapper = styled.pre`
 position: relative;
 flex: 0 1 auto;
 padding-bottom: 0px;
-/* background-color:#2E3440; */
+/* background-color: #ffffff; */
 box-shadow: 0px 0px 4px rgba(105, 105, 105, .5), 0px 0px 1px rgba(105, 255, 255, .5);
 border: 1.5px solid transparent;
 border-radius:5px;
 transition:1s;
-:hover {
-  border: 1.5px solid #729AC1;
-  transition:1s;
- }
 
- & .Button{
+ & .icon{
    display:block;
    position: absolute;
    margin-top:0px;
@@ -48,26 +44,20 @@ transition:1s;
    transition:0.5s;  
    border-radius:0px 0px 0px 5px ; 
    padding:5px;
-   color:#8FBCBB;
-   :hover{
-   background-color:#A3BE8C;
-   border-radius:0px 0px 0px 5px ;     
-   transition:0.5s;
-   }
  }
 `
-const CopyIcon = styled(CopyAlt)`
-:hover{
-  color:#3B4252;
-}
-`
+const CopyIcon = styled(CopyAlt)``
+
 const DescriptionFooter = styled.div`
 /* margin-top:-20px; */
 /* padding:20px; */
 border: 1px solid white;
 `
 
-const CheatCard = ({ cardTitle, cardText, className }) => {
+const CheatCard = ({ cardTitle, cardText, className, }) => {
+  const theme = useContext(ThemeContext);
+
+  console.log(ThemeContext);
   return (
     <CheatCardContainer className={className}>
       <HeadingWrapper>
@@ -77,9 +67,9 @@ const CheatCard = ({ cardTitle, cardText, className }) => {
       </HeadingWrapper>
       <CodeWrapper className="codeWrapper">
         <CopyToClipboard text={cardText}>
-          <CopyIcon className="Button" size="35" />
+          <CopyIcon className="icon" size="35" />
         </CopyToClipboard>
-        <SyntaxHighlighter language="javascript" style={nord} >
+        <SyntaxHighlighter className="syntaxHighlighter" language="javascript" style={nord} customStyle={{ background: theme.layoutContainerColor }}>
           {cardText}
         </SyntaxHighlighter>
       </CodeWrapper>

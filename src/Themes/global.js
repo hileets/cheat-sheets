@@ -38,6 +38,18 @@ export const GlobalStyles = createGlobalStyle`
 
   .codeWrapper{
     background-color: ${({ theme }) => theme.codeWrapperBackgroundColor};
+    :hover {
+    border: ${({ theme }) => theme.codeWrapperBorder};
+    transition:1s;
+    }
   }
-
+  .icon{
+    color: ${({ theme }) => theme.iconColor};
+    :hover{
+    color:${({ theme }) => theme.iconHoverColor};
+    background-color: ${({ theme }) => theme.iconHoverBackgroundColor};
+    border-radius: ${({ theme }) => theme.iconBorderRadius};
+    transition: ${({ theme }) => theme.iconTransition};
+   }
+  }
   `

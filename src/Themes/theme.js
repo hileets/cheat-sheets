@@ -8,7 +8,15 @@ export const lightTheme = {
     tagLineColor: '#A3BE8C',
     tagLineBackgroundColor: '#ECEFF4',
     cheatCardHeadingColor: '#D08770',
-    codeWrapperBackgroundColor: '#ECEFF4'
+    codeWrapperBackgroundColor: '#ECEFF4',
+    codeWrapperBorder: '1.5px solid #BF616A',
+    iconColor: '#D08770',
+    iconHoverColor: '#ECEFF4',
+    iconHoverBackgroundColor: '#BF616A',
+    iconBorderRadius: '0px 0px 0px 5px',
+    iconTransition: '0.5s',
+
+
 
     // text: '#363537',
     // toggleBorder: '#FFF',
@@ -25,7 +33,14 @@ export const darkTheme = {
     tagLineColor: '#88C0D0',
     tagLineBackgroundColor: '#2E3440',
     cheatCardHeadingColor: '#8FBCBB',
-    codeWrapperBackgroundColor: '#2E3440'
+    codeWrapperBackgroundColor: '#2E3440',
+    codeWrapperBorder: '1.5px solid #729AC1',
+    iconColor: '#8FBCBB',
+    iconHoverColor: '#2E3440',
+    iconHoverBackgroundColor: '#A3BE8C',
+    iconBorderRadius: '0px 0px 0px 5px',
+    iconTransition: '0.5s',
+
     // text: '#FAFAFA',
     // toggleBorder: '#6B8096',
     // gradient: 'linear-gradient(#091236, #1E215D)',
