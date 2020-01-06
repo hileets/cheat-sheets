@@ -7,6 +7,8 @@ import Tag from "./Tag/Tag"
 import Masonry from 'masonry-layout'
 import { lightTheme, darkTheme } from '../Themes/theme'
 import { GlobalStyles } from '../Themes/global'
+import { Sun } from "styled-icons/boxicons-regular/Sun"
+import { Moon } from "styled-icons/boxicons-regular/Moon"
 
 const data = [{
   heading: `Defaults`,
@@ -136,6 +138,10 @@ const data = [{
   }]
 }]
 
+const LayoutContainerWrapper = styled.div`
+position:relative;
+`
+
 const LayoutContainer = styled.div`
 padding: 100px;
 margin-top:-30px;
@@ -169,18 +175,14 @@ font-size:5vw;
 `
 const ToggleButtonWrapper = styled.div`
 display:flex;
-justify-content: center;
-padding:50px;
+justify-content: flex-end;
 `
-const ToggleButton = styled.button`
-background-color:#A3BE8C;
-font-size:bold;
-`
+const ThemeToggleIcon = styled(Sun)``
 
 const Layout = () => {
   useEffect(() => {
     const grids = document.querySelector('.grid');
-    var msnry = new Masonry(grids, {
+    new Masonry(grids, {
       itemSelector: '.grid-item',
       columnWidth: 50,
       gutter: 20
@@ -203,30 +205,34 @@ const Layout = () => {
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
       <>
         <GlobalStyles />
-        <ToggleButtonWrapper className='toggleButtonWrapper'>
-          <ToggleButton onClick={toggleTheme}>Toggle Theme</ToggleButton>
-        </ToggleButtonWrapper>
-        <Heading>
-          <MainHeading className='mainHeading'>
-            react native
+        <LayoutContainerWrapper>
+          <ToggleButtonWrapper className='toggleButtonWrapper'>
+            <ThemeToggleIcon onClick={toggleTheme} size="35" />
+
+
+          </ToggleButtonWrapper>
+          <Heading>
+            <MainHeading className='mainHeading'>
+              react native
           </MainHeading>
-          <SubHeading className='subHeading'>
-            Cheat Sheet
+            <SubHeading className='subHeading'>
+              Cheat Sheet
           </SubHeading>
-        </Heading>
-        <LayoutContainer className='layoutContainer'>
-          {
-            data.map(head =>
-              (<>
-                <Tag tagTitle={head.heading} />
-                <div className="grid">
-                  {head.cheats.map(cheat => (
-                    <CheatCard cardTitle={cheat.title} cardText={cheat.text} className="grid-item" />
-                  ))}
-                </div>
-              </>))
-          }
-        </LayoutContainer>
+          </Heading>
+          <LayoutContainer className='layoutContainer'>
+            {
+              data.map(head =>
+                (<>
+                  <Tag tagTitle={head.heading} />
+                  <div className="grid">
+                    {head.cheats.map(cheat => (
+                      <CheatCard cardTitle={cheat.title} cardText={cheat.text} className="grid-item" />
+                    ))}
+                  </div>
+                </>))
+            }
+          </LayoutContainer>
+        </LayoutContainerWrapper>
       </>
     </ThemeProvider>
   )
