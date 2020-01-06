@@ -4,7 +4,9 @@ import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { CopyAlt } from 'styled-icons/boxicons-solid/CopyAlt'
 // import SyntaxHighlighter from 'react-syntax-highlighter'
 import { Light as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { nord } from 'react-syntax-highlighter/dist/esm/styles/hljs'
+import { ThemeProvider } from 'styled-components'
+import { foundation } from 'react-syntax-highlighter/dist/esm/styles/hljs'
+import { nord } from "react-syntax-highlighter/dist/esm/styles/hljs"
 
 const CheatCardContainer = styled.div`
 display:flex;
@@ -28,11 +30,9 @@ const CodeWrapper = styled.pre`
 position: relative;
 flex: 0 1 auto;
 padding-bottom: 0px;
-/* background-color: #ffffff; */
 box-shadow: 0px 0px 4px rgba(105, 105, 105, .5), 0px 0px 1px rgba(105, 255, 255, .5);
 border: 1.5px solid transparent;
 border-radius:5px;
-transition:1s;
 
  & .icon{
    display:block;
@@ -48,6 +48,7 @@ transition:1s;
 `
 const CopyIcon = styled(CopyAlt)``
 
+
 const DescriptionFooter = styled.div`
 /* margin-top:-20px; */
 /* padding:20px; */
@@ -55,10 +56,12 @@ border: 1px solid white;
 `
 
 const CheatCard = ({ cardTitle, cardText, className, }) => {
-  const theme = useContext(ThemeContext);
+  const styles = useContext(ThemeContext);
+
 
   console.log(ThemeContext);
   return (
+
     <CheatCardContainer className={className}>
       <HeadingWrapper>
         <CheatCardHeading className="cheatCardHeading">
@@ -69,12 +72,11 @@ const CheatCard = ({ cardTitle, cardText, className, }) => {
         <CopyToClipboard text={cardText}>
           <CopyIcon className="icon" size="35" />
         </CopyToClipboard>
-        <SyntaxHighlighter className="syntaxHighlighter" language="javascript" style={nord} customStyle={{ background: theme.layoutContainerColor }}>
+        <SyntaxHighlighter className="syntaxHighlighter" language="javascript" style={styles.themeType === "dark" ? nord : foundation} customStyle={{ background: styles.layoutContainerColor }}>
           {cardText}
         </SyntaxHighlighter>
       </CodeWrapper>
-    </CheatCardContainer >
-  )
+    </CheatCardContainer >);
 }
 
 export default CheatCard

@@ -15,7 +15,7 @@ export const lightTheme = {
     iconHoverBackgroundColor: '#BF616A',
     iconBorderRadius: '0px 0px 0px 5px',
     iconTransition: '0.5s',
-
+    themeType: "light"
 
 
     // text: '#363537',
@@ -40,7 +40,7 @@ export const darkTheme = {
     iconHoverBackgroundColor: '#A3BE8C',
     iconBorderRadius: '0px 0px 0px 5px',
     iconTransition: '0.5s',
-
+    themeType: "dark"
     // text: '#FAFAFA',
     // toggleBorder: '#6B8096',
     // gradient: 'linear-gradient(#091236, #1E215D)',
