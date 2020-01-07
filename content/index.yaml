@@ -1,10 +1,35 @@
-- path: "/css"
-  title: "Cascading SS"
+- path: "/es6"
+  title: "ES2015+ cheatsheet"
   content:
     - title: Media Queries
       cheats:
-        - heading: Grids
-          text: >-
-            970px 
-            asdas 
-            asdas
+        - heading: Making Promises
+          text: |
+            new Promise((resolve, reject) => {
+            if (ok) { resolve(result) }
+            else { reject(error) }
+            })
+        - heading: Using Promises
+          text: |
+            promise
+              .then((result) => { ··· })
+              .catch((error) => { ··· })
+        - heading: Using promises with finally
+          text: |
+            promise
+              .then((result) => { ··· })
+              .catch((error) => { ··· })
+              .finally(() => { // logic independent of success/error })
+        - heading: Promise functions
+          text: |
+            Promise.all(···)
+            Promise.race(···)
+            Promise.reject(···)
+            Promise.resolve(···)
+        - heading: Async-await
+          text: |
+            async function run () {
+              const user = await getUser()
+              const tweets = await getTweets(user)
+              return [user, tweets]
+            }
