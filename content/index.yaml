@@ -1,10 +1,70 @@
-- path: "/css"
-  title: "Cascading SS"
+- path: "/es6"
+  title: "ES2015+ cheatsheet"
   content:
-    - title: Media Queries
+    - title: Promises
       cheats:
-        - heading: Grids
-          text: >-
-            970px 
-            asdas 
-            asdas
+        - heading: Making Promises
+          text: |
+            new Promise((resolve, reject) => {
+            if (ok) { resolve(result) }
+            else { reject(error) }
+            })
+        - heading: Using Promises
+          text: |
+            promise
+              .then((result) => { ··· })
+              .catch((error) => { ··· })
+        - heading: Using promises with finally
+          text: |
+            promise
+              .then((result) => { ··· })
+              .catch((error) => { ··· })
+              .finally(() => { // logic independent of success/error })
+        - heading: Promise functions
+          text: |
+            Promise.all(···)
+            Promise.race(···)
+            Promise.reject(···)
+            Promise.resolve(···)
+        - heading: Async-await
+          text: |
+            async function run () {
+              const user = await getUser()
+              const tweets = await getTweets(user)
+              return [user, tweets]
+            }
+    - title: Destructuring
+      cheats:
+        - heading: Destructuring assignment
+          text: |
+            let {title, author} = {
+              title: 'The Silkworm',
+              author: 'R. Galbraith'
+            }
+        - heading: Default values
+          text: |
+            const scores = [22, 33]
+            const [math = 50, sci = 50, arts = 50] = scores
+        - heading: Function Arguments
+          text: |
+            function greet({ name, greeting }) {
+              console.log(`${greeting}, ${name}!`)
+              }
+            greet({ name: 'Larry', greeting: 'Ahoy' })
+        - heading: Loops
+          text: |
+            for (let {title, artist} of songs) {
+              ···
+            }
+        - heading: Reassigning Keys
+          text: |
+            function printCoordinates({ left: x, top: y }) {
+              console.log(`x: ${x}, y: ${y}`)
+            }
+        - heading: Default Values
+          text: |
+            function greet({ name = 'Rauno' } = {}) {
+              console.log(`Hi ${name}!`);
+            }
+            greet() // Hi Rauno!
+            greet({ name: 'Larry' }) // Hi Larry!

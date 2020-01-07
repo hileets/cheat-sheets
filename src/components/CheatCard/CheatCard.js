@@ -2,9 +2,7 @@ import React, { useContext } from "react"
 import styled, { ThemeContext } from "styled-components"
 import { CopyToClipboard } from "react-copy-to-clipboard"
 import { CopyAlt } from "styled-icons/boxicons-solid/CopyAlt"
-// import SyntaxHighlighter from 'react-syntax-highlighter'
 import SyntaxHighlighter from "react-syntax-highlighter"
-import { ThemeProvider } from "styled-components"
 import { foundation } from "react-syntax-highlighter/dist/esm/styles/hljs"
 import { nord } from "react-syntax-highlighter/dist/esm/styles/hljs"
 
@@ -48,12 +46,6 @@ const CodeWrapper = styled.pre`
   }
 `
 const CopyIcon = styled(CopyAlt)``
-
-const DescriptionFooter = styled.div`
-  /* margin-top:-20px; */
-  /* padding:20px; */
-  border: 1px solid white;
-`
 
 const CheatCard = ({ cardTitle, cardText, className }) => {
   const styles = useContext(ThemeContext)
