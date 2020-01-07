@@ -1,1 +1,3 @@
-import CheatCards from "./CheatCard";
+import CheatCard from "./CheatCard"
+
+export default CheatCard
