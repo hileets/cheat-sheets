@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react"
 import PropTypes from "prop-types"
-// import "./layout.css"
 import styled, { ThemeProvider } from "styled-components"
 import CheatCard from "../components/CheatCard"
 import Tag from "../components/Tag"
@@ -12,7 +11,6 @@ import { Moon } from "styled-icons/boxicons-regular/Moon"
 const LayoutContainerWrapper = styled.div`
   position: relative;
 `
-
 const LayoutContainer = styled.div`
   padding: 100px;
   margin-top: -30px;
@@ -21,9 +19,8 @@ const LayoutContainer = styled.div`
 `
 const Heading = styled.div`
   display: flex;
-  flex-flow: column wrap;
-  justify-content: center;
-  background-color: #2e3440;
+  flex-flow: row wrap;
+  justify-content: flex-end;
 `
 const MainHeading = styled.h1`
   flex: 1 1 auto;
@@ -68,7 +65,7 @@ const CheatSheetTemplate = ({ pageContext }) => {
     const Masonry = require("masonry-layout")
     new Masonry(grids, {
       itemSelector: ".grid-item",
-      columnWidth: 50,
+      columnWidth: 100,
       gutter: 20,
     })
   }, [])
@@ -76,10 +73,8 @@ const CheatSheetTemplate = ({ pageContext }) => {
   const [theme, setTheme] = useState("light")
 
   const toggleTheme = () => {
-    // if the theme is not light, then set it to dark
     if (theme === "light") {
       setTheme("dark")
-      // otherwise, it should be light
     } else {
       setTheme("light")
     }

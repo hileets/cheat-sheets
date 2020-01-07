@@ -28,7 +28,7 @@ const data = [
       this.state = { visible: true }
     }
   }
-    
+
   class Hello extends Component {
       state = { visible: true }
     }
@@ -43,7 +43,7 @@ const data = [
       this.state = { visible: true }
     }
   }
-    
+
   class Hello extends Component {
       state = { visible: true }
     }
@@ -58,7 +58,7 @@ const data = [
       this.state = { visible: true }
     }
   }
-    
+
   class Hello extends Component {
       state = { visible: true }
     }
@@ -73,7 +73,7 @@ const data = [
       this.state = { visible: true }
     }
   }
-    
+
   class Hello extends Component {
       state = { visible: true }
     }
@@ -88,7 +88,7 @@ const data = [
       this.state = { visible: true }
     }
   }
-    
+
   class Hello extends Component {
       state = { visible: true }
     }
@@ -103,7 +103,7 @@ const data = [
       this.state = { visible: true }
     }
   }
-    
+
   class Hello extends Component {
       state = { visible: true }
     }
@@ -140,7 +140,7 @@ const data = [
         text: `<AlertBox>
     <h1>You have pending notifications</h1>
   </AlertBox>
-   
+
   class AlertBox extends Component {
     render () {
       return <div className='alert-box'>
@@ -156,38 +156,32 @@ const data = [
 const LayoutContainerWrapper = styled.div`
   position: relative;
 `
-
 const LayoutContainer = styled.div`
-  padding: 100px;
-  margin-top: -30px;
   display: flex;
   flex-flow: column;
+  /* padding:50px 50px 50px 50px; */
 `
 const Heading = styled.div`
   display: flex;
   flex-flow: column wrap;
-  justify-content: center;
-  background-color: #2e3440;
 `
 const MainHeading = styled.h1`
   flex: 1 1 auto;
   font-family: "Work Sans", sans-serif;
   font-style: italic;
-  font-weight: 900;
-  font-size: 16vw;
-  margin-bottom: -20px;
+  font-size: 210px;
+  padding-right:5px;
+  margin-bottom:-20px;
 `
 const SubHeading = styled.h3`
   flex: 1 1 auto;
-  margin-top: -30px;
-  margin-right: 60px;
-  margin-bottom: -50px;
-  align-self: flex-end;
   font-family: "Work Sans", sans-serif;
   font-style: italic;
-  font-weight: 600;
-  font-size: 5vw;
+  font-size: 50px;
+  align-self:flex-end;
+  padding-right:10px;
 `
+
 const ToggleButtonWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
@@ -211,18 +205,16 @@ const Layout = () => {
     const Masonry = require("masonry-layout")
     new Masonry(grids, {
       itemSelector: ".grid-item",
-      columnWidth: 50,
-      gutter: 20,
+      columnWidth: 40,
+      gutter: 30,
     })
   }, [])
 
   const [theme, setTheme] = useState("light")
 
   const toggleTheme = () => {
-    // if the theme is not light, then set it to dark
     if (theme === "light") {
       setTheme("dark")
-      // otherwise, it should be light
     } else {
       setTheme("light")
     }
@@ -237,11 +229,11 @@ const Layout = () => {
             {theme === "light" && <LightIcon onClick={toggleTheme} size="35" />}
             {theme === "dark" && <DarkIcon onClick={toggleTheme} size="35" />}
           </ToggleButtonWrapper>
-          <Heading>
-            <MainHeading className="mainHeading">react native</MainHeading>
-            <SubHeading className="subHeading">Cheat Sheet</SubHeading>
-          </Heading>
           <LayoutContainer className="layoutContainer">
+            <Heading>
+              <MainHeading className="mainHeading">react native</MainHeading>
+              <SubHeading className="subHeading">cheat sheet</SubHeading>
+            </Heading>
             {data.map(head => (
               <>
                 <Tag tagTitle={head.heading} />
