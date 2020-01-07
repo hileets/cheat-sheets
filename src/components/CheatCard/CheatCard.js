@@ -3,7 +3,6 @@ import styled, { ThemeContext } from "styled-components"
 import { CopyToClipboard } from "react-copy-to-clipboard"
 import { CopyAlt } from "styled-icons/boxicons-solid/CopyAlt"
 import SyntaxHighlighter from "react-syntax-highlighter"
-import { ThemeProvider } from "styled-components"
 import { foundation } from "react-syntax-highlighter/dist/esm/styles/hljs"
 import { nord } from "react-syntax-highlighter/dist/esm/styles/hljs"
 
